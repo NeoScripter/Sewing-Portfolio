@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'HeadingBold';
+    src: url('/resources/fonts/NotoSerif-Bold.woff2') format('woff2'),
+        url('/resources/fonts/NotoSerif-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HeadingRegular';
+    src: url('/resources/fonts/NotoSerif-Regular.woff2') format('woff2'),
+        url('/resources/fonts/NotoSerif-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BodyRegular';
+    src: url('/resources/fonts/OpenSans-Regular.woff2') format('woff2'),
+        url('/resources/fonts/OpenSans-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}

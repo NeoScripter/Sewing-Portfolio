@@ -1,0 +1,57 @@
+// Breakpoints
+$breakpoint1: rem(600px);
+$breakpoint2: rem(1200px);
+
+// Sizes
+$wr-width: rem(1111px);
+
+// Colors
+
+$colors: (
+    "primary": (
+        "cyan": #050815,
+        "btn-bg": #203A4C,
+        "footer-bg": #33323D
+    ),
+
+    "secondary": (
+        "light": #FAFAFA,
+        "border": #EAEAEB,
+        "danger": #F43030
+    )
+);
+
+$colors-light: (
+  "body-bg": #FAFAFA,
+  "font": #33323D,
+  "btn-bg": #203A4C,
+  "btn":  #FAFAFA
+);
+
+$colors-dark: (
+  "body-bg": #33323D,
+  "font": #FAFAFA,
+  "btn-bg": #FAFAFA,
+  "btn":  #203A4C
+);
+
+
+:root {
+    @include generate-css-variables($colors-light);
+}
+
+:root:has(#dark-mode:checked) {
+    @include generate-css-variables($colors-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include generate-css-variables($colors-dark);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        @include generate-css-variables($colors-light);
+    }
+}
