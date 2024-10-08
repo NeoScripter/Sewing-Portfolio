@@ -2,6 +2,7 @@ html,
 body {
     overflow-x: hidden;
     overflow-x: clip;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -21,5 +22,17 @@ body {
     }
     @include m2() {
         padding-inline: 0;
+    }
+}
+
+section {
+    margin-bottom: rem(75px);
+
+    @include m1() {
+        margin-bottom: rem(90px);
+    }
+
+    @include m2() {
+        margin-bottom: rem(150px);
     }
 }

@@ -1,0 +1,169 @@
+.hero {
+    position: relative;
+}
+
+.hero__image {
+    overflow: hidden;
+    img {
+        @include image();
+    }
+
+    @include m1() {
+        height: rem(600px);
+    }
+}
+
+.hero__content {
+    background-color: var(--body-bg);
+
+    @include m1() {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: rem(514px);
+    }
+}
+
+.hero__heading {
+    color: var(--font);
+    margin-block: 1.5rem 2rem;
+    @include h1();
+
+    @include m1() {
+        margin-block: rem(56px) rem(48px);
+        width: rem(458px);
+    }
+}
+
+.hero__btn {
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    @include btn-primary();
+
+    @include hover() {
+        background-color: color("primary", "cyan");
+        color: color("secondary", "light");
+
+        path {
+            stroke: color("secondary", "light");
+        }
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0.1;
+    }
+}
+
+#bottom-line {
+    transition: opacity 0.5 ease;
+    animation: fadeInOut 3s ease-in-out infinite;
+}
+
+#middle-line {
+    transition: opacity 0.5 ease;
+    animation: fadeInOut 3s ease-in-out 0.3s infinite;
+}
+
+#top-line {
+    transition: opacity 0.5 ease;
+    animation: fadeInOut 3s ease-in-out 0.6s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #top-line,
+    #middle-line,
+    #bottom-line {
+        animation: none;
+    }
+}
+
+.about {
+}
+
+.about__intro {
+
+    @include m1() {
+        display: grid;
+        place-content: center;
+        gap: clamp(2rem, 5vw, 4.3rem);
+        grid-template-columns: 1fr clamp(16rem, 42vw, 21rem);
+    }
+}
+
+.about__image {
+    padding-block: 2rem;
+    overflow: hidden;
+    img {
+        @include image();
+    }
+
+    @include m1() {
+        padding-block: 0;
+    }
+}
+
+.about__content {
+    padding-block: rem(40px) rem(60px);
+    border-bottom: rem(1px) solid color('secondary', 'border');
+    border-top: rem(1px) solid color('secondary', 'border');
+
+    @include m1() {
+        padding-block: rem(40px) rem(40px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+}
+
+.about__heading {
+    color: var(--font);
+    margin-bottom: rem(28px);
+    @include h2();
+}
+
+.about__description {
+    margin-bottom: 2.5rem;
+    @include p();
+}
+
+.about__btn {
+
+    @include btn-secondary();
+}
+
+.about__action {
+    padding-block: rem(136px) rem(80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(40px);
+
+    @include m1() {
+        padding-block: rem(80px) rem(20px);
+    }
+
+    @include m2() {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-block: rem(150px) rem(20px);
+    }
+}
+
+.about__prompt {
+    color: var(--font);
+    @include h2();
+}
+
+.about__btn-prompt {
+
+    @include btn-secondary();
+}

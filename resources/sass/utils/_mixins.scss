@@ -48,28 +48,41 @@
 
 @mixin h1() {
     & {
-        font-size: rem(40px);
+        text-wrap: balance;
+        font-size: rem(32px);
         font-style: normal;
         font-weight: 700;
         font-family: "HeadingBold";
-        line-height: rem(42px);
+        line-height: rem(36px);
         letter-spacing: rem(-0.357px);
+    }
+
+    @include m1() {
+        font-size: rem(40px);
+        line-height: rem(42px);
     }
 
     @include m2() {
         font-size: rem(50px);
+        line-height: rem(52px);
     }
 }
 
 @mixin h2() {
     & {
-        font-size: rem(40px);
+        font-size: rem(32px);
         font-style: normal;
         font-weight: 700;
         font-family: "HeadingBold";
-        line-height: rem(42px);
+        line-height: rem(36px);
         letter-spacing: rem(-0.357px);
     }
+
+    @include m1() {
+        font-size: rem(40px);
+        line-height: rem(42px);
+    }
+
 }
 
 @mixin p() {
@@ -118,6 +131,7 @@
 @mixin btn-primary() {
     cursor: pointer;
     border: none;
+    width: max-content;
     font-size: 0.75rem;
     color: var(--btn);
     background-color: var(--btn-bg);
@@ -142,10 +156,10 @@
 
 @mixin btn-secondary() {
     cursor: pointer;
-    border: none;
+    border: rem(1px) solid var(--font);
     font-size: 0.75rem;
     color: var(--btn-bg);
-    background-color: var(--btn);
+    background-color: var(--body-bg);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -153,4 +167,10 @@
     font-family: "BodyRegular";
     text-transform: uppercase;
     padding: rem(17px) rem(36px);
+    transition: color 0.3s ease, background-color 0.3s ease;
+
+    @include hover() {
+        color: var(--body-bg);
+        background-color: var(--btn-bg);
+    }
 }
