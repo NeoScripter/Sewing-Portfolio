@@ -20,6 +20,8 @@
 
         </main>
 
+        @include('partials.footer')
+
     </div>
 
     @vite('resources/ts/app.ts')

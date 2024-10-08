@@ -1,0 +1,147 @@
+.footer {
+    position: relative;
+    padding-block: rem(50px);
+    display: grid;
+    gap: 2rem;
+
+    @include m1() {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: clamp(0.5rem, 3.5vw, 2.5rem);
+        padding-block: rem(20px);
+    }
+}
+
+.footer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    right: -100%;
+    background-color: var(--font);
+    z-index: -1;
+}
+
+.footer__logo {
+    width: 4rem;
+    height: 4rem;
+    flex-shrink: 0;
+    margin-inline: auto;
+
+    img {
+        @include image(contain);
+        content: var(--logo-footer);
+    }
+
+    @include m1() {
+        margin-inline: 0;
+    }
+}
+
+.footer__nav {
+    @include m1() {
+        margin-right: auto;
+    }
+    @include m2() {
+        margin-left: 4rem;
+    }
+
+}
+
+.footer__ul {
+    display: grid;
+    margin-bottom: 1rem;
+    gap: 2rem;
+    color: var(--body-bg);
+    text-transform: uppercase;
+
+    @include m1() {
+        display: flex;
+        align-items: center;
+        gap: clamp(0.5rem, 3.5vw, 2rem);
+        margin-bottom: 0;
+    }
+
+    a {
+        display: block;
+        text-align: center;
+        white-space: nowrap;
+        @include burger();
+
+        @include hover() {
+        }
+
+        @include m1() {
+        }
+    }
+
+    li {
+        position: relative;
+        width: max-content;
+        margin-inline: auto;
+    }
+
+    li::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 100%;
+        height: 0.07rem;
+        background-color: var(--body-bg);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      li:hover::after {
+        transform: scaleX(1);
+      }
+
+      li.current_page_item::after {
+          transform: scaleX(1);
+        }
+
+      li.header__theme-group::after {
+          content: none;
+      }
+}
+
+.footer__social {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    svg {
+
+        fill: var(--body-bg);
+        @include image();
+    }
+
+    path {
+        fill: var(--body-bg);
+    }
+}
+
+.footer__socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer__social--viber {
+    svg {
+        display: grid;
+    place-content: center;
+    }
+    path {
+        fill: var(--font);
+        transform: translate(-0.2rem, -0.1rem);
+    }
+    rect {
+        fill: var(--body-bg);
+        @include image(contain);
+    }
+}

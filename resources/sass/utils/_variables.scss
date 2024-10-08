@@ -25,14 +25,16 @@ $colors-light: (
   "body-bg": #FAFAFA,
   "font": #33323D,
   "btn-bg": #203A4C,
-  "btn":  #FAFAFA
+  "btn":  #FAFAFA,
+  "menu-bg": rgba(255,255,255,0.5)
 );
 
 $colors-dark: (
   "body-bg": #33323D,
   "font": #FAFAFA,
   "btn-bg": #FAFAFA,
-  "btn":  #203A4C
+  "btn":  #203A4C,
+  "menu-bg": rgba(0,0,0,0.5)
 );
 
 
