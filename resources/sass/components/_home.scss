@@ -112,8 +112,8 @@
 
 .about__content {
     padding-block: rem(40px) rem(60px);
-    border-bottom: rem(1px) solid color('secondary', 'border');
-    border-top: rem(1px) solid color('secondary', 'border');
+    border-bottom: rem(2px) solid color('secondary', 'border');
+    border-top: rem(2px) solid color('secondary', 'border');
 
     @include m1() {
         padding-block: rem(40px) rem(40px);
@@ -149,21 +149,42 @@
 
     @include m1() {
         padding-block: rem(80px) rem(20px);
+        flex-direction: row;
+        justify-content: space-between;
+
+        &:after {
+            content: '';
+            height: rem(1.5px);
+            background-color: color('secondary', 'border');
+            flex-shrink: 10;
+            width: 100%;
+            order: 1;
+        }
     }
 
     @include m2() {
-        flex-direction: row;
-        justify-content: space-between;
         padding-block: rem(150px) rem(20px);
     }
 }
 
 .about__prompt {
     color: var(--font);
+    text-align: center;
     @include h2();
+
+    @include m1() {
+        max-width: rem(350px);
+    }
+
+    @include m2() {
+        width: max-content;
+        flex-shrink: 0;
+        max-width: 100%;
+    }
 }
 
 .about__btn-prompt {
-
+    flex-shrink: 0;
+    order: 2;
     @include btn-secondary();
 }

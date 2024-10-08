@@ -20,9 +20,9 @@
 
     <nav class="header__nav">
         <ul class="header__ul">
-            <li><a href="">Главная</a></li>
-            <li><a href="">Портфолио</a></li>
-            <li><a href="">Напишите мне</a></li>
+            <li><a href="{{route('home')}}">Главная</a></li>
+            <li><a href="{{route('gallery')}}">Портфолио</a></li>
+            <li><a href="{{route('contact')}}">Напишите мне</a></li>
             <li class="header__theme-group">
                 <div class="header__theme-wrapper">
                     <div class="header__theme-icon">

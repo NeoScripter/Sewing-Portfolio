@@ -129,7 +129,12 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
+
+    @include m2() {
+        gap: 1.5rem;
+    }
 }
+
 
 .footer__social--viber {
     svg {

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Global\ContactController;
+use App\Http\Controllers\Global\GalleryController as GlobalGalleryController;
 use App\Http\Controllers\Global\HomeController;
 
 /*
@@ -17,6 +19,10 @@ use App\Http\Controllers\Global\HomeController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/portfolio', [GlobalGalleryController::class, 'index'])->name('gallery');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/galleries', [GalleryController::class, 'index'])->name('admin.galleries.index');

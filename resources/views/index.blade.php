@@ -43,7 +43,7 @@
                     рада, если вы посмотрите мои работы!
                 </div>
 
-                <a href="" class="about__btn">Мои работы</a>
+                <a href="{{route('gallery')}}" class="about__btn">Мои работы</a>
 
             </div>
 
