@@ -1,11 +1,13 @@
 export default class AnimationHandler {
     burgerMenu: HTMLElement | null;
+    header: HTMLElement | null;
 
     themeCheckbox: HTMLInputElement | null;
 
     constructor() {
         // Burger Menu
         this.burgerMenu = document.querySelector(".header__burger");
+        this.header = document.querySelector('.header');
 
         // Theme setup
         this.themeCheckbox = document.querySelector("#dark-mode");
@@ -31,6 +33,18 @@ export default class AnimationHandler {
                 this.burgerMenu.setAttribute("aria-expanded", "false");
             }
         });
+
+        document.addEventListener('click', (e) => {
+            const targetElement = e.target as HTMLElement;
+            if (!this.header) return;
+
+            if (!this.header.contains(targetElement)) {
+                if (!this.burgerMenu) return;
+
+                this.burgerMenu.setAttribute("data-state", "closed");
+                this.burgerMenu.setAttribute("aria-expanded", "false");
+            }
+        })
     }
 
 
