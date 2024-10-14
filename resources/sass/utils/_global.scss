@@ -36,3 +36,26 @@ section {
         margin-bottom: rem(150px);
     }
 }
+
+.popup {
+    position: fixed;
+    border: rem(1px) solid color('secondary', 'border');
+    padding: 0.75rem;
+    background-color: var(--body-bg);
+    color: #000;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    transition: opacity 0.5s ease-in-out,
+    top 0.5s ease-in-out;
+    line-height: normal;
+    letter-spacing: rem(1px);
+    font-family: "BodyRegular";
+    text-transform: uppercase;
+}
+
+.popup--hidden {
+    top: 2rem;
+    opacity: 0;
+}

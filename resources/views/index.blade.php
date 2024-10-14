@@ -1,8 +1,8 @@
-@extends('partials.layout')
-
-@section('title', 'Home')
-
-@section('content')
+<x-layout>
+    <!-- Slot for Header -->
+    <x-slot name="nav">
+        <x-user-nav />
+    </x-slot>
 
     <section class="hero">
 
@@ -43,7 +43,7 @@
                     рада, если вы посмотрите мои работы!
                 </div>
 
-                <a href="{{route('gallery')}}" class="about__btn">Мои работы</a>
+                <a href="{{route('portfolio')}}" class="about__btn">Мои работы</a>
 
             </div>
 
@@ -53,9 +53,9 @@
 
             <h3 class="about__prompt">Хотите нанять меня?</h3>
 
-            <a href="" class="about__btn-prompt">Напишите мне</a>
+            <a href="{{route('contact')}}" class="about__btn-prompt">Напишите мне</a>
         </div>
 
     </section>
 
-@endsection
+</x-layout>

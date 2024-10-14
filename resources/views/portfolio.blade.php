@@ -1,31 +1,29 @@
-@extends('partials.layout')
-
-@section('title', 'Home')
-
-@section('content')
+<x-layout>
+    <!-- Slot for Header -->
+    <x-slot name="nav">
+        <x-user-nav />
+    </x-slot>
 
     <section class="portfolio">
-        @for ($i = 1; $i <= 3; $i++)
+        @foreach ($categories as $category)
         <div class="portfolio__piece">
 
             <div class="portfolio__preview">
-                <img src="{{ asset('images/Porto 2.png') }}" alt="">
+                <img src="{{ asset('storage/' . $category->images()->first()->image_path) }}" alt="lorem">
             </div>
 
             <div class="portfolio__content">
 
-                <h2 class="portfolio__title">Платья</h2>
+                <h2 class="portfolio__title">{{ $category->name }}</h2>
 
-                <div class="portfolio__description">Подробное описание категории изделий со всеми вытекающими
-                    обстоятельствами. Подробное описание категории изделий со всеми вытекающими обстоятельствами. Подробное
-                    описание категории изделий со всеми вытекающими обстоятельствами.
+                <div class="portfolio__description">{{ $category->description }}
                 </div>
 
-                <a href="" class="portfolio__link">Смотреть работы</a>
+                <a href="{{route('portfolio.piece', $category->id)}}" class="portfolio__link">Смотреть работы</a>
             </div>
 
         </div>
-        @endfor
+        @endforeach
 
         <div class="about__action">
 
@@ -35,4 +33,4 @@
         </div>
     </section>
 
-@endsection
+</x-layout>

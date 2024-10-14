@@ -9,10 +9,10 @@ class Image extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['gallery_id', 'image_path'];
+    protected $fillable = ['category_id', 'image_path'];
 
     public function gallery()
     {
-        return $this->belongsTo(Gallery::class);
+        return $this->belongsTo(Category::class);
     }
 }

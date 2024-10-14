@@ -2,12 +2,20 @@ export default class AnimationHandler {
     burgerMenu: HTMLElement | null;
     header: HTMLElement | null;
 
+    popup: HTMLElement | null;
+    popupHiddenClass: string;
+
+
     themeCheckbox: HTMLInputElement | null;
 
     constructor() {
         // Burger Menu
         this.burgerMenu = document.querySelector(".header__burger");
-        this.header = document.querySelector('.header');
+        this.header = document.querySelector(".header");
+
+        // Popup
+        this.popup = document.querySelector(".popup");
+        this.popupHiddenClass ='popup--hidden';
 
         // Theme setup
         this.themeCheckbox = document.querySelector("#dark-mode");
@@ -16,6 +24,20 @@ export default class AnimationHandler {
     init() {
         this.toggleBurgerMenu();
         this.setupTheme();
+        this.setupPopup();
+    }
+
+    setupPopup() {
+
+        setTimeout(() => {
+            if (!this.popup) return
+            this.popup.classList.add(this.popupHiddenClass);
+        }, 3000);
+
+        setTimeout(() => {
+            if (!this.popup) return
+            this.popup.style.display = 'none';
+        }, 3500);
     }
 
     toggleBurgerMenu() {
@@ -34,7 +56,7 @@ export default class AnimationHandler {
             }
         });
 
-        document.addEventListener('click', (e) => {
+        document.addEventListener("click", (e) => {
             const targetElement = e.target as HTMLElement;
             if (!this.header) return;
 
@@ -44,13 +66,12 @@ export default class AnimationHandler {
                 this.burgerMenu.setAttribute("data-state", "closed");
                 this.burgerMenu.setAttribute("aria-expanded", "false");
             }
-        })
+        });
     }
 
+    // Theme setup
 
-       // Theme setup
-
-       setupTheme() {
+    setupTheme() {
         if (!this.themeCheckbox) return;
         this.checkThemePreference();
         this.applySavedTheme();

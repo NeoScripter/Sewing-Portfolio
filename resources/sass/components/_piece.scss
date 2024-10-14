@@ -1,0 +1,45 @@
+
+.piece {
+    margin-top: 2rem;
+}
+
+.piece__preview {
+    border-bottom: rem(2px) solid color('secondary', 'border');
+    border-top: rem(2px) solid color('secondary', 'border');
+    padding-block: 1.5rem;
+
+    @include m1() {
+        padding-block: 2.5rem;
+    }
+}
+
+.piece__title {
+    margin-bottom: rem(28px);
+    @include h2();
+}
+
+.piece__description {
+    max-width: rem(800px);
+    @include p();
+}
+
+.piece__grid {
+    display: grid;
+    margin-top: 1.5rem;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(rem(150px), 1fr));
+
+    @include m1() {
+        margin-top: 2.5rem;
+        gap: 1.5rem;
+    }
+}
+
+.piece__item {
+    aspect-ratio: 1/1;
+    cursor: pointer;
+
+    > img {
+        @include image();
+    }
+}

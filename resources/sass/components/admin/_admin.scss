@@ -1,0 +1,144 @@
+
+.admin {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1rem;
+
+    @include m1() {
+        gap: 0;
+        grid-template-columns: 10rem 1fr;
+    }
+}
+
+.admin__sidebar {
+    @include m1() {
+        border-right: rem(2px) solid color('secondary', 'border');
+        min-height: 100vh;
+    }
+}
+
+.admin__ul {
+
+    a {
+        padding: 0.5rem;
+        display: block;
+    }
+}
+
+.admin__panel {
+    display: grid;
+    gap: 2rem;
+    align-content: start;
+
+    @include m1() {
+        padding-inline: 1rem;
+    }
+
+    input[type="file"] {
+        border: 1px dashed color('primary', 'border');
+        padding: 0.2rem;
+    }
+}
+
+.admin__flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.admin__add-category-form {
+    display: grid;
+    gap: 0.3rem;
+}
+
+.admin__category {
+    display: grid;
+    gap: 0.5rem;
+    border: rem(1px) solid color('secondary', 'border');
+    padding: 1rem;
+}
+
+.admin__images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, rem(100px));
+    padding: 0.3rem;
+    gap: 0.3rem;
+    border: rem(1px) solid color('secondary', 'border');
+    background-color: var(--menu-bg);
+    @include m1() {
+    }
+
+    @include m2() {
+    }
+}
+
+.admin__image-item {
+    overflow: hidden;
+    position: relative;
+}
+
+.admin__image {
+    @include image();
+}
+
+.admin__image-delete {
+    position: absolute;
+    right: 0.2rem;
+    top: 0.2rem;
+
+    button {
+        cursor: pointer;
+        background-color: color('primary', 'btn-bg');
+        border: none;
+        color: #fff;
+        aspect-ratio: 1/1;
+        display: block;
+        border-radius: 50%;
+        display: grid;
+        place-content: center;
+        width: 1.3rem;
+        font-size: 1.4rem;
+        transition: scale 0.3s ease;
+
+        @include hover() {
+            scale: 1.1;
+        }
+    }
+}
+
+.admin__title {
+    margin-bottom: 0.3rem;
+    @include h3();
+}
+
+.admin__prg {
+    @include p();
+}
+
+.admin-btn {
+    margin: 0.5rem;
+    cursor: pointer;
+    border: rem(1px) solid var(--font);
+    font-size: 0.75rem;
+    color: var(--btn-bg);
+    background-color: var(--body-bg);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: rem(2px);
+    font-family: "BodyRegular";
+    text-transform: uppercase;
+    padding: rem(10px) rem(20px);
+    transition: color 0.3s ease, background-color 0.3s ease;
+
+    @include hover() {
+        color: var(--body-bg);
+        background-color: var(--btn-bg);
+    }
+}
+
+
+.admin__section--active {
+    background-color: var(--btn-bg);
+    color: var(--btn);
+}
