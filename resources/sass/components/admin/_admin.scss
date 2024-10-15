@@ -92,13 +92,12 @@
         border: none;
         color: #fff;
         aspect-ratio: 1/1;
-        display: block;
         border-radius: 50%;
         display: grid;
         place-content: center;
         width: 1.3rem;
         font-size: 1.4rem;
-        transition: scale 0.3s ease;
+        transition: scale 0.2s ease;
 
         @include hover() {
             scale: 1.1;
@@ -148,4 +147,23 @@
     margin-block: 0.3rem;
 
     @include p();
+}
+
+.admin__image-group {
+    display: grid;
+    place-content: start;
+
+    .admin__image-item {
+        max-width: rem(600px);
+    }
+
+    .admin__image-delete {
+
+        button {
+            width: 2rem;
+            padding-bottom: 0.1rem;
+            padding-right: 0.1rem;
+            font-size: 2rem;
+        }
+    }
 }

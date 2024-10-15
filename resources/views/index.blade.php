@@ -7,12 +7,12 @@
     <section class="hero">
 
         <div class="hero__image">
-            <img src="{{ asset('images/hero.webp') }}" alt="hero img">
+            <img src="{{ asset('storage/' . $heroImage->content) }}" alt="hero img">
         </div>
 
         <div class="hero__content">
 
-            <h1 class="hero__heading">Здравствуйте, меня зовут Оксана и я - профессиональная швея</h1>
+            <h1 class="hero__heading">{{ $heroText ? $heroText->content : '' }}</h1>
 
             <a href="#about" class="hero__btn">
                 {!! file_get_contents(public_path('images/btn-arrow.svg')) !!}
@@ -28,19 +28,14 @@
         <div class="about__intro">
 
             <div class="about__image">
-                <img src="{{asset('images/intro.webp')}}" alt="Женщина в бело-синем платье с цветочным узором стоит на фоне зелёных растений и улыбается, поднимая правую руку в жесте приветствия.">
+                <img src="{{ asset('storage/' . $homeImage->content) }}" alt="Женщина в бело-синем платье с цветочным узором стоит на фоне зелёных растений и улыбается, поднимая правую руку в жесте приветствия.">
             </div>
 
             <div class="about__content">
                 <h2 class="about__heading">Обо мне</h2>
 
                 <div class="about__description">
-                    Я профессиональная швея и ищу работу в интересной компании. Моя главная цель — шить качественную и
-                    удобную одежду. Я хорошо разбираюсь в современных техниках шитья и уделяю особое внимание деталям и
-                    аккуратности в работе. В основном я шью на швейной машине, но могу адаптироваться под любые задачи и
-                    инструменты. Живу в Москве, но готова работать удаленно и уже имею опыт дистанционного сотрудничества. В
-                    свободное время я предпочитаю активный отдых на природе: прогулки, бег или велосипедные поездки. Буду
-                    рада, если вы посмотрите мои работы!
+                    {{ $homeText ? $homeText->content : '' }}
                 </div>
 
                 <a href="{{route('portfolio')}}" class="about__btn">Мои работы</a>

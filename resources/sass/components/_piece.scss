@@ -38,8 +38,17 @@
 .piece__item {
     aspect-ratio: 1/1;
     cursor: pointer;
+    border: 5px solid #fff;
+    box-shadow: 0.25rem 0.25rem 0.5rem hsl(0 0% 0% / 0.2);
+
+    transition: scale 500ms;
 
     > img {
         @include image();
     }
 }
+
+.piece__item:hover {
+    scale: 1.2;
+    z-index: 2;
+  }

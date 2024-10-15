@@ -43,4 +43,6 @@ Route::prefix('admin')->group(function () {
     Route::delete('/images/{image}', [ImageController::class, 'destroy'])->name('admin.images.destroy');
     Route::get('/home', [PanelController::class, 'home'])->name('admin.home.index');
     Route::get('/contacts', [PanelController::class, 'contacts'])->name('admin.contacts.index');
+    Route::post('/content', [PanelController::class, 'storeOrUpdate'])->name('admin.content.storeOrUpdate');
+
 });

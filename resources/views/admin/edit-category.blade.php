@@ -20,8 +20,14 @@
                     <h3 class="admin__title">Редактировать категорию</h3>
                     <label for="new_category_name admin__prg">Название категории</label>
                     <input type="text" id="new_category_name" name="new_category_name" value="{{ $category->name }}">
+                    @error('new_category_name')
+                        <p class="admin__error">{{ $message }}</p>
+                    @enderror
                     <label for="new_category_description admin__prg">Описание категории</label>
                     <textarea name="new_category_description" id="new_category_description" cols="30" rows="5">{{ $category->description }}</textarea>
+                    @error('new_category_description')
+                        <p class="admin__error">{{ $message }}</p>
+                    @enderror
                 </form>
             </div>
         </div>
