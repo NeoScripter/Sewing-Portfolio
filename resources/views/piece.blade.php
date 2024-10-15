@@ -23,4 +23,8 @@
 
     </section>
 
+    <x-slot name="footer">
+        <x-footer />
+    </x-slot>
+
 </x-layout>

@@ -1,0 +1,96 @@
+.contact {}
+
+.contact__preview {
+    border-bottom: rem(2px) solid color('secondary', 'border');
+    border-top: rem(2px) solid color('secondary', 'border');
+    padding-bottom: 1.5rem;
+
+    @include m1() {
+        padding-bottom: 2.5rem;
+    }
+
+    @include m2() {
+        padding-block: 2.5rem;
+    }
+}
+
+.contact__heading {
+    margin-block: 1rem;
+    @include h2();
+
+    @include m1() {
+        margin-block: 2rem;
+    }
+}
+
+.contact__intro {
+    max-width: rem(635px);
+    @include p();
+
+    @include m2() {
+        flex-basis: rem(635px);
+    }
+}
+
+.contact__form-wrapper {
+    margin-bottom: 5rem;
+
+    @include m2() {
+        margin-top: 2.5rem;
+    }
+}
+
+.contact__form-wrapper,
+.contact__preview {
+    @include m2() {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+}
+
+.contact__form {
+    max-width: rem(635px);
+    display: grid;
+    gap: 1rem;
+    label {
+        display: block;
+        margin-bottom: 0.2rem;
+        @include input-bold();
+    }
+    input, textarea {
+        padding: 0.5em 1em;
+        width: 100%;
+        background-color: rgba(51, 50, 61, 0.1);
+        border: 1px solid color('secondary', 'border');
+        color: var(--font);
+        @include input();
+    }
+    .admin__error {
+        @include input();
+    }
+
+    @include m1() {
+        gap: 1.5rem;
+    }
+
+    @include m2() {
+        flex-basis: rem(635px);
+    }
+}
+
+.contact__input-group {}
+
+.contact__btn {
+    padding: rem(17px) rem(36px);
+    @include btn-primary();
+
+    @include hover() {
+        background-color: color("primary", "cyan");
+        color: color("secondary", "light");
+
+        path {
+            stroke: color("secondary", "light");
+        }
+    }
+}

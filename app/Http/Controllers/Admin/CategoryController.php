@@ -22,11 +22,10 @@ class CategoryController extends Controller
         return view('admin.edit-category', compact('category'));
     }
 
-    // Store a new image in the gallery
-    public function storeImage(Request $request, Category $category)
+   /*  public function storeImage(Request $request, Category $category)
     {
         $request->validate([
-            'image' => 'required|image|max:2048',
+            'image' => 'required|image|max:1024',
         ]);
 
         $path = $request->file('image')->store('images', 'public');
@@ -37,13 +36,13 @@ class CategoryController extends Controller
         ]);
 
         return redirect()->route('admin.galleries.show', $category)->with('success', 'Image added successfully!');
-    }
+    } */
 
     public function store(Request $request)
     {
         $validated = $request->validate([
             'new_category_name' => 'required|string',
-            'new_category_description' => 'nullable|string',
+            'new_category_description' => 'nullable|string|max:240',
         ]);
 
         Category::create([
@@ -58,7 +57,7 @@ class CategoryController extends Controller
     {
         $validated = $request->validate([
             'new_category_name' => 'required|string',
-            'new_category_description' => 'nullable|string',
+            'new_category_description' => 'nullable|string|max:240',
         ]);
 
         $category = Category::findOrFail($id);

@@ -7,7 +7,9 @@ use App\Http\Controllers\Global\ContactController;
 use App\Http\Controllers\Global\CategoryController as GlobalCategoryController;
 use App\Http\Controllers\Global\HomeController;
 use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\Global\PieceController;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,8 @@ Route::get('/portfolio', [GlobalCategoryController::class, 'index'])->name('port
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 Route::get('/portfolio/{id}', [GlobalCategoryController::class, 'show'])->name('portfolio.piece');
+
+Route::post('/contact/send', [ContactFormController::class, 'send'])->name('contact.send');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [PanelController::class, 'index'])->name('admin.category.index');

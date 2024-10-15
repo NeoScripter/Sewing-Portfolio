@@ -142,3 +142,10 @@
     background-color: var(--btn-bg);
     color: var(--btn);
 }
+
+.admin__error {
+    color: rgb(215, 19, 19);
+    margin-block: 0.3rem;
+
+    @include p();
+}

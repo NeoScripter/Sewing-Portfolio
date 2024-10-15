@@ -45,6 +45,15 @@
                             <input type="hidden" name="category_id" value="{{ $category->id }}">
                             <input type="file" name="images[]" multiple>
                             <button type="submit" class="admin-btn">Добавить фотографии</button>
+                            @if ($errors->{'category_' . $category->id}->any())
+                                <div class="admin__error">
+                                    <ul>
+                                        @foreach ($errors->{'category_' . $category->id}->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                         </form>
                     </div>
                 @endforeach
@@ -55,8 +64,14 @@
                 <h3 class="admin__title">Добавить новую категорию</h3>
                 <label for="new_category_name admin__prg">Название категории</label>
                 <input type="text" id="new_category_name" name="new_category_name">
+                @error('new_category_name')
+                    <p class="admin__error">{{ $message }}</p>
+                @enderror
                 <label for="new_category_description admin__prg">Описание категории</label>
                 <textarea name="new_category_description" id="new_category_description" cols="30" rows="5"></textarea>
+                @error('new_category_description')
+                    <p class="admin__error">{{ $message }}</p>
+                @enderror
                 <button type="submit" class="admin-btn">Добавить категорию</button>
             </form>
         </div>

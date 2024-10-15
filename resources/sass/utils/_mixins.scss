@@ -127,6 +127,10 @@
         line-height: rem(30px);
         font-family: "BodyRegular";
     }
+
+    @include m1() {
+        font-size: rem(16px);
+    }
 }
 
 @mixin input-bold() {
@@ -135,7 +139,11 @@
         font-style: normal;
         font-weight: 400;
         line-height: rem(30px);
-        font-family: "BodyBold";
+        font-family: "HeadingRegular";
+    }
+
+    @include m1() {
+        font-size: rem(16px);
     }
 }
 
