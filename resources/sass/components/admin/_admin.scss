@@ -11,7 +11,9 @@
 }
 
 .admin__sidebar {
+    border-bottom: rem(2px) solid color('secondary', 'border');
     @include m1() {
+        border-bottom: 0;
         border-right: rem(2px) solid color('secondary', 'border');
         min-height: 100vh;
     }
@@ -22,6 +24,11 @@
     a {
         padding: 0.5rem;
         display: block;
+
+        @include hover() {
+            background-color: var(--li-hover);
+            color: var(--btn);
+        }
     }
 }
 
@@ -166,4 +173,30 @@
             font-size: 2rem;
         }
     }
+}
+
+.login__container {
+    display: grid;
+    place-content: center;
+    min-height: 60vh;
+    gap: 1rem;
+
+}
+
+.login__form-group {
+    display: grid;
+    place-content: center;
+
+    label, input {
+        width: 17rem;
+        max-width: 70vw;
+        @include p();
+    }
+}
+
+.login__btn {
+    margin-top: 1.5rem;
+    width: max-content;
+    display: block;
+    @include btn-secondary();
 }

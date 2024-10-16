@@ -15,6 +15,11 @@
                     <a href="{{ route('admin.contacts.index') }}"
                         class="{{ Request::is('admin/contacts') ? 'admin__section--active' : '' }}">Контакты</a>
                 </li>
+                @auth
+                    <li>
+                        <a href="{{ route('login') }}">Выйти</a>
+                    </li>
+                @endauth
             </ul>
         </nav>
     </sidebar>

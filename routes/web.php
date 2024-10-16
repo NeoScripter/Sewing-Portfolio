@@ -9,6 +9,7 @@ use App\Http\Controllers\Global\HomeController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\Global\PieceController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Mail;
 
 /*
@@ -33,7 +34,7 @@ Route::get('/portfolio/{id}', [GlobalCategoryController::class, 'show'])->name('
 
 Route::post('/contact/send', [ContactFormController::class, 'send'])->name('contact.send');
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/', [PanelController::class, 'index'])->name('admin.category.index');
     Route::post('/category', [CategoryController::class, 'store'])->name('admin.category.store');
     Route::delete('/category/{category}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
@@ -44,5 +45,12 @@ Route::prefix('admin')->group(function () {
     Route::get('/home', [PanelController::class, 'home'])->name('admin.home.index');
     Route::get('/contacts', [PanelController::class, 'contacts'])->name('admin.contacts.index');
     Route::post('/content', [PanelController::class, 'storeOrUpdate'])->name('admin.content.storeOrUpdate');
-
 });
+
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+
+// Handle login form submission
+Route::post('/login', [LoginController::class, 'login'])->name('login.post');
+
+// Optional: Route to logout
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

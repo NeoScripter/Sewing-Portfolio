@@ -1,11 +1,10 @@
-
 .piece {
     margin-top: 2rem;
 }
 
 .piece__preview {
-    border-bottom: rem(2px) solid color('secondary', 'border');
-    border-top: rem(2px) solid color('secondary', 'border');
+    border-bottom: rem(2px) solid color("secondary", "border");
+    border-top: rem(2px) solid color("secondary", "border");
     padding-block: 1.5rem;
 
     @include m1() {
@@ -51,4 +50,43 @@
 .piece__item:hover {
     scale: 1.2;
     z-index: 2;
-  }
+}
+
+.piece__overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+
+    img {
+        max-height: 80%;
+        max-width: calc(100vw - 64px);
+    }
+
+    @include m1() {
+        gap: 0.5rem;
+    }
+}
+
+.piece__btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    flex-shrink: 0;
+
+    svg {
+        width: 2rem;
+        height: 3rem;
+        fill: #fff;
+
+        @include m1() {
+            width: 4rem;
+            height: 6rem;
+        }
+    }
+}
