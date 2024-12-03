@@ -10,12 +10,14 @@ use Illuminate\Support\Facades\Storage;
 
 class PanelController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $categories = Category::all();
         return view('admin.categories', compact('categories'));
     }
 
-    public function home() {
+    public function home()
+    {
         $heroImage = Content::where('page_name', 'home')->where('section_name', 'hero')->first();
         $heroText = Content::where('page_name', 'home')->where('section_name', 'hero_text')->first();
         $homeImage = Content::where('page_name', 'home')->where('section_name', 'home')->first();
@@ -25,7 +27,8 @@ class PanelController extends Controller
     }
 
 
-    public function contacts() {
+    public function contacts()
+    {
         $contactsText = Content::where('page_name', 'contacts')->where('section_name', 'contact_text')->first();
 
         return view('admin.contacts', compact('contactsText'));
@@ -38,8 +41,8 @@ class PanelController extends Controller
             'content_id' => 'nullable|exists:contents,id', // Content ID (nullable for new content)
             'section_name' => 'required|string|max:255',  // Section name (e.g., "hero", "about")
             'page_name' => 'required|string|max:255',
-            'section_content' => 'nullable|string|max:1000',
-            'image' => 'required|nullable|image|max:1024',
+            'section_content' => 'nullable|string|max:1000', // For text content
+            'image' => 'nullable|image|max:1024', // Optional for image uploads
         ]);
 
         // Check if content ID exists (if content needs to be updated)
@@ -52,7 +55,7 @@ class PanelController extends Controller
         // Set common fields
         $content->page_name = $validated['page_name'];
         $content->section_name = $validated['section_name'];
-        $content->type = $request->hasFile('image') ? 'image' : 'text';
+        $content->type = $request->hasFile('image') ? 'image' : 'text'; // Determine the content type
 
         // Handle Image Upload
         if ($request->hasFile('image')) {
@@ -63,12 +66,11 @@ class PanelController extends Controller
 
             // Store new image and save its path
             $imagePath = $request->file('image')->store('images', 'public');
-            $content->content = $imagePath;
+            $content->content = $imagePath; // Save the image path in the content field
         }
-
-        // Handle Text Content
-        if ($request->input('section_content')) {
-            $content->content = $request->input('section_content');
+        // Handle Text Content - only if image is not uploaded
+        elseif ($request->filled('section_content')) {
+            $content->content = $request->input('section_content'); // Save the text in the content field
         }
 
         // Save the content (either create or update)
