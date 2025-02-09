@@ -5,7 +5,7 @@ An elegant and simple portfolio website for a seamstress, built with a custom CM
 
 [Website](https://bespokewebsites.ru/project/sewartistry/)
 
-![App Screenshot](https://bespokewebsites.ru/wp-content/uploads/2024/10/sewing-1-min-1400x777.webp)
+![App Screenshot](public/images/screenshot.webp)
 
 **Tech Stack:**
 
